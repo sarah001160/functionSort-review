@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><!--BS4-->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="all.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js'></script>
+  <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+
+  <test-component></test-component>
+  <second-component></second-component>
+
+</div>
+<script type="text/x-template" id="testComponent">
+  <div>
+    <h2>this is test-component</h2>
+    <p>元件一</p>
+  </div>
+</script>
+
+<script type="text/x-template" id="secondComponent">
+  <div>
+    <h2>this is second-template</h2>
+    <p>元件二</p>
+  </div>
+
+</script>
+
+
+
+
+
+<script>
+Vue.component('test-component',{
+props:['data'],//元件裡要套用元件外的設定時,必須使props連結,使用方法「:data="元件外的設定"」
+template:'#testComponent',
+
+
+})
+
+Vue.component('second-component',{
+  template:'#secondComponent',
+})
+
+
+var app = new Vue({
+ el:'#app',
+ data:{
+   item:{
+     tile:'顯示抬頭',
+     content:'顯示內容',
+   },
+  color:'bgcolor'
+ }
+
+})
+
+</script>
+
+
+</body>
+</html>
